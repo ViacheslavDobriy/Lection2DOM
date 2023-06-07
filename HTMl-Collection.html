@@ -16,8 +16,27 @@
     </div>
     <script>
         const divElement = document.querySelector('div')
-        console.log(divElement.childNodes.length);
-        console.log(divElement.children.length);
+            // console.log(divElement.childNodes.length);
+            // console.log(divElement.children.length);
+            // 1 способ перебрать все элементы коллекции
+            // Array.from(divElement.childNodes).forEach((childNode) => {
+            //     console.log('childNode "%s" типа "%d"', childNode.nodeName, childNode.nodeType);
+            // });
+            // 2 способ перебрать все элементы коллекции
+            // [...divElement.children].forEach((child) => {
+            //     console.log('child "%s типа %d"', child.nodeName, child.nodeType);
+            // });
+        const allPElements = document.querySelectorAll('p');
+        console.log('Static NodeList length is before: $d', allPElements.length);
+        console.log('Dynamic NodeList length is before: $d', divElement.childNodes.length);
+        console.log('HTML Collection NodeList length is before: $d', divElement.children.length);
+
+        const newPElem = document.createElement('p');
+        newPElem.textContent = 'Четвертый параграф';
+        divElement.appendChild(newPElem);
+        console.log('Static NodeList length is after: $d', allPElements.length);
+        console.log('Dynamic NodeList length is after: $d', divElement.childNodes.length);
+        console.log('HTML Collection NodeList length is after: $d', divElement.children.length);
     </script>
 </body>
 
